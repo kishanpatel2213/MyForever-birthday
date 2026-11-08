@@ -89,26 +89,76 @@
     }
   }
 
-  // Cute kiss sound effect (sweet pop & chirp)
+  // Realistic Multi-Stage Kiss Sound (suction pucker + crisp pop + sparkle trail)
   function playKissSound() {
     if (!audioCtx) return;
     try {
       const now = audioCtx.currentTime;
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
 
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(450, now);
-      osc.frequency.exponentialRampToValueAtTime(950, now + 0.14);
+      // Stage 1: Soft suction pucker ("mm")
+      const osc1 = audioCtx.createOscillator();
+      const gain1 = audioCtx.createGain();
+      osc1.type = 'sine';
+      osc1.frequency.setValueAtTime(560, now);
+      osc1.frequency.exponentialRampToValueAtTime(360, now + 0.12);
+      gain1.gain.setValueAtTime(0.25, now);
+      gain1.gain.exponentialRampToValueAtTime(0.01, now + 0.12);
+      osc1.connect(gain1);
+      gain1.connect(audioCtx.destination);
+      osc1.start(now);
+      osc1.stop(now + 0.12);
 
-      gain.gain.setValueAtTime(0.2, now);
-      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.18);
+      // Stage 2: Crisp kiss release pop ("mwah! / pop!")
+      setTimeout(() => {
+        if (!audioCtx) return;
+        const popTime = audioCtx.currentTime;
+        const osc2 = audioCtx.createOscillator();
+        const gain2 = audioCtx.createGain();
+        osc2.type = 'triangle';
+        osc2.frequency.setValueAtTime(880, popTime);
+        osc2.frequency.exponentialRampToValueAtTime(1450, popTime + 0.16);
+        gain2.gain.setValueAtTime(0.35, popTime);
+        gain2.gain.exponentialRampToValueAtTime(0.001, popTime + 0.18);
+        osc2.connect(gain2);
+        gain2.connect(audioCtx.destination);
+        osc2.start(popTime);
+        osc2.stop(popTime + 0.18);
 
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
+        // Stage 3: High sparkle kiss shimmer
+        playChimeNote(1046.5, 0.45, 'sine', 0.12);
+        setTimeout(() => playChimeNote(1318.5, 0.55, 'sine', 0.1), 80);
+      }, 95);
+    } catch (e) {
+      console.warn('Kiss audio error:', e);
+    }
+  }
 
-      osc.start(now);
-      osc.stop(now + 0.18);
+  // Realistic Warm Hug Audio (Gentle heartbeat lub-dub + sweet cozy harmony)
+  function playHugSound() {
+    if (!audioCtx) return;
+    try {
+      const now = audioCtx.currentTime;
+      const playThump = (time, freq, dur) => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, time);
+        osc.frequency.exponentialRampToValueAtTime(40, time + dur);
+        gain.gain.setValueAtTime(0.4, time);
+        gain.gain.exponentialRampToValueAtTime(0.001, time + dur);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(time);
+        osc.stop(time + dur);
+      };
+      // Heartbeat: lub-dub
+      playThump(now, 85, 0.15);
+      playThump(now + 0.22, 75, 0.18);
+
+      // Cozy cuddle chords
+      setTimeout(() => playChimeNote(523.25, 0.9, 'sine', 0.12), 280);
+      setTimeout(() => playChimeNote(659.25, 1.0, 'sine', 0.12), 460);
+      setTimeout(() => playChimeNote(783.99, 1.2, 'sine', 0.14), 640);
     } catch (e) {}
   }
 
@@ -321,16 +371,16 @@
       "The happiest Pookies in the world 🧸"
     ],
     kiss: [
-      "Mwaaaah! 💋 Chiku kisses Simran!",
-      "A million kisses for my Birthday Queen! 💋✨",
-      "Simran & Chiku's sweetest kiss! 💖",
-      "Muah! You're my whole world! 💋"
+      "Mwaaaah! 💋 Chiku's sweetest kiss for Simran!",
+      "Lips touch, hearts beat as one! 💋✨",
+      "A million passionate kisses for my Birthday Queen! 💋💖",
+      "Muah! You're Chiku's whole world! 💋"
     ],
     hug: [
-      "Warmest cuddle for my baby Simran! 🤗",
-      "Wrapped in love, forever with you! 💕",
-      "Chiku will never let you go! 🧸",
-      "Coziest pookie hugs! 🌸"
+      "SQUEEEZE! 🤗 Chiku wraps Simran in the warmest hug!",
+      "Holding you tight... so safe and cozy in Chiku's arms! 🧸💕",
+      "Simran's sweet cuddle makes Chiku's world complete! 🌸",
+      "Never letting you go, my baby! Tightest pookie hugs! 🤗"
     ],
     dance: [
       "Dancing in love together! 💃🕺",
@@ -366,7 +416,7 @@
   function spawnPookieLoveHearts(type = 'kiss') {
     heartsBurstContainer.innerHTML = '';
     const heartSymbols = ['❤️', '💖', '💕', '💗', '💋', '✨', '🌸'];
-    const count = type === 'kiss' ? 16 : 10;
+    const count = type === 'kiss' ? 18 : 12;
 
     for (let i = 0; i < count; i++) {
       const heart = document.createElement('span');
@@ -374,20 +424,20 @@
       heart.style.position = 'absolute';
       heart.style.left = '50%';
       heart.style.top = '50%';
-      heart.style.fontSize = `${18 + Math.random() * 22}px`;
+      heart.style.fontSize = `${20 + Math.random() * 24}px`;
       heart.style.pointerEvents = 'none';
 
       const angle = (Math.PI * 2 * i) / count;
-      const dist = 60 + Math.random() * 90;
+      const dist = 70 + Math.random() * 110;
       const targetX = Math.cos(angle) * dist;
-      const targetY = Math.sin(angle) * dist - 40;
+      const targetY = Math.sin(angle) * dist - 50;
 
       heart.animate([
-        { transform: 'translate(-50%, -50%) scale(0.4)', opacity: 1 },
-        { transform: `translate(calc(-50% + ${targetX}px), calc(-50% + ${targetY}px)) scale(1.3)`, opacity: 0.9, offset: 0.7 },
-        { transform: `translate(calc(-50% + ${targetX * 1.2}px), calc(-50% + ${targetY - 50}px)) scale(1.6)`, opacity: 0 }
+        { transform: 'translate(-50%, -50%) scale(0.3)', opacity: 1 },
+        { transform: `translate(calc(-50% + ${targetX}px), calc(-50% + ${targetY}px)) scale(1.35)`, opacity: 0.95, offset: 0.65 },
+        { transform: `translate(calc(-50% + ${targetX * 1.25}px), calc(-50% + ${targetY - 60}px)) scale(1.7)`, opacity: 0 }
       ], {
-        duration: 1200 + Math.random() * 600,
+        duration: 1400 + Math.random() * 700,
         easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
         fill: 'forwards'
       });
@@ -399,6 +449,7 @@
   function triggerPookieAction(action) {
     currentAction = action;
     pookiesActorsWrap.className = 'pookies-actors-wrap';
+    const backdrop = document.querySelector('.pookies-backdrop');
     
     // Update action button active state
     pookieActionBtns.forEach(btn => {
@@ -407,41 +458,48 @@
 
     if (action === 'kiss') {
       pookiesActorsWrap.classList.add('kissing');
+      backdrop?.classList.add('zoomed');
       playKissSound();
       spawnPookieLoveHearts('kiss');
       updatePookieDialogue('kiss');
     } else if (action === 'hug') {
       pookiesActorsWrap.classList.add('hugging');
-      playChimeNote(659.25, 0.6, 'sine', 0.1);
+      backdrop?.classList.add('zoomed');
+      playHugSound();
       spawnPookieLoveHearts('hug');
       updatePookieDialogue('hug');
     } else if (action === 'dance') {
       pookiesActorsWrap.classList.add('dancing');
+      backdrop?.classList.remove('zoomed');
       playCheerSparkle();
       spawnPookieLoveHearts('dance');
       updatePookieDialogue('dance');
     } else if (action === 'flowers') {
-      pookiesActorsWrap.classList.add('kissing');
+      pookiesActorsWrap.classList.add('flowers');
+      backdrop?.classList.remove('zoomed');
       playCheerSparkle();
       spawnPookieLoveHearts('kiss');
       updatePookieDialogue('flowers');
     } else if (action === 'cake') {
-      pookiesActorsWrap.classList.add('kissing');
+      pookiesActorsWrap.classList.add('cake');
+      backdrop?.classList.remove('zoomed');
       playChimeNote(783.99, 0.5, 'sine', 0.12);
       spawnPookieLoveHearts('hug');
       updatePookieDialogue('cake');
     } else {
+      backdrop?.classList.remove('zoomed');
       updatePookieDialogue('idle');
     }
 
-    // Reset back to gentle idle after action completes
+    // Reset back to gentle idle after action completes (generous 4.8s duration to enjoy the kiss & hug!)
     clearTimeout(autonomousActionTimer);
     autonomousActionTimer = setTimeout(() => {
       pookiesActorsWrap.className = 'pookies-actors-wrap';
+      backdrop?.classList.remove('zoomed');
       pookieActionBtns.forEach(btn => btn.classList.remove('active'));
       updatePookieDialogue('idle');
       scheduleNextAutonomousPookieMoments();
-    }, 4500);
+    }, 4800);
   }
 
   // Spontaneous loving moments when idle

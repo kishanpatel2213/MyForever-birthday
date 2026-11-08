@@ -124,13 +124,26 @@
         <!-- The Two Loving Pookie Characters -->
         <div class="pookies-actors-wrap" id="pookiesActorsWrap">
 
+          <!-- Real Kiss Contact Indicator (Smooch Heart & Shockwave) -->
+          <div class="kiss-smooch-indicator" id="kissSmoochIndicator">
+            <div class="smooch-wave"></div>
+            <div class="smooch-wave" style="animation-delay: 0.4s;"></div>
+            <span class="smooch-heart-pulse">💋</span>
+            <span class="smooch-mwah-text">MWAH! 💋</span>
+          </div>
+
+          <!-- Real Hug Squeeze Indicator -->
+          <div class="hug-cuddle-indicator" id="hugCuddleIndicator">
+            <span class="cuddle-squeeze-text">SQUEEEZE! 🥰 Tight Cuddle</span>
+          </div>
+
           <!-- ================= POOKIE 1: CHIKU (Boy Pookie) ================= -->
           <div class="pookie pookie-chiku" id="pookieChiku" title="Chiku Pookie">
-            <svg viewBox="0 0 160 200" width="100%" height="100%">
+            <svg viewBox="0 0 170 200" width="100%" height="100%" style="overflow: visible;">
               <defs>
                 <radialGradient id="chikuBodyGrad" cx="40%" cy="40%" r="60%">
                   <stop offset="0%" stop-color="#fae3c6" />
-                  <stop offset="100%" stop-color="#e8be89" />
+                  <stop offset="100%" stop-color="#e2b57e" />
                 </radialGradient>
                 <radialGradient id="chikuEarInner" cx="50%" cy="50%" r="50%">
                   <stop offset="0%" stop-color="#ffd1dc" />
@@ -143,55 +156,126 @@
               <circle cx="45" cy="50" r="14" fill="url(#chikuEarInner)" />
 
               <!-- Right Ear -->
-              <circle cx="115" cy="50" r="24" fill="url(#chikuBodyGrad)" />
-              <circle cx="115" cy="50" r="14" fill="url(#chikuEarInner)" />
+              <circle cx="120" cy="50" r="24" fill="url(#chikuBodyGrad)" />
+              <circle cx="120" cy="50" r="14" fill="url(#chikuEarInner)" />
 
               <!-- Body -->
-              <ellipse cx="80" cy="140" rx="46" ry="42" fill="url(#chikuBodyGrad)" />
+              <ellipse cx="85" cy="140" rx="48" ry="43" fill="url(#chikuBodyGrad)" />
               <!-- Tummy Patch -->
-              <ellipse cx="80" cy="145" rx="30" ry="26" fill="#fff6ec" />
+              <ellipse cx="85" cy="145" rx="32" ry="27" fill="#fff6ec" />
 
               <!-- Head -->
-              <ellipse cx="80" cy="95" rx="52" ry="46" fill="url(#chikuBodyGrad)" />
+              <ellipse cx="85" cy="95" rx="54" ry="48" fill="url(#chikuBodyGrad)" />
 
               <!-- Rosy Cheeks (Blush) -->
-              <circle cx="50" cy="108" r="10" fill="#ff7597" opacity="0.6" />
-              <circle cx="110" cy="108" r="10" fill="#ff7597" opacity="0.6" />
+              <circle class="blush-circle" cx="52" cy="110" r="12" fill="#ff7597" opacity="0.65" />
+              <circle class="blush-circle" cx="118" cy="110" r="12" fill="#ff7597" opacity="0.65" />
 
-              <!-- Cute Smiling Eyes -->
-              <!-- Left Eye -->
-              <path d="M 54 90 Q 62 82 70 90" stroke="#332025" stroke-width="3.5" fill="none" stroke-linecap="round" />
-              <!-- Right Eye -->
-              <path d="M 90 90 Q 98 82 106 90" stroke="#332025" stroke-width="3.5" fill="none" stroke-linecap="round" />
+              <!-- Squish Cheeks for Real Hug -->
+              <g class="squish-cheeks">
+                <path d="M 125 104 Q 130 110 125 116" stroke="#ff4d79" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                <path d="M 129 107 Q 133 110 129 114" stroke="#ff4d79" stroke-width="2" fill="none" stroke-linecap="round" />
+              </g>
 
-              <!-- Cute Bear Snout & Nose -->
-              <ellipse cx="80" cy="105" rx="14" ry="10" fill="#ffffff" />
-              <ellipse cx="80" cy="101" rx="5" ry="3.5" fill="#332025" />
-              <path d="M 80 104 Q 80 110 80 112 M 76 110 Q 80 114 84 110" stroke="#332025" stroke-width="2.2" fill="none" stroke-linecap="round" />
+              <!-- === 1. NORMAL IDLE FACE === -->
+              <g class="part-normal eye-chiku-normal">
+                <!-- Glossy bear eyes with shining white reflections -->
+                <ellipse cx="64" cy="91" rx="6.5" ry="8.5" fill="#2d1c20" />
+                <circle cx="62" cy="88" r="3" fill="#ffffff" />
+                <ellipse cx="106" cy="91" rx="6.5" ry="8.5" fill="#2d1c20" />
+                <circle cx="104" cy="88" r="3" fill="#ffffff" />
+              </g>
+              <g class="part-normal mouth-chiku-normal">
+                <ellipse cx="85" cy="106" rx="14" ry="10" fill="#ffffff" />
+                <ellipse cx="85" cy="102" rx="5.5" ry="4" fill="#2d1c20" />
+                <path d="M 85 105 L 85 112 M 79 110 Q 85 115 91 110" stroke="#2d1c20" stroke-width="2.4" stroke-linecap="round" fill="none" />
+              </g>
+
+              <!-- === 2. REAL KISS FACE (Sweet closed blissful eyes & puckered kiss snout) === -->
+              <g class="part-kiss eye-chiku-kiss">
+                <path d="M 54 91 Q 64 80 74 91" stroke="#2d1c20" stroke-width="4.5" stroke-linecap="round" fill="none" />
+                <path d="M 96 91 Q 106 80 116 91" stroke="#2d1c20" stroke-width="4.5" stroke-linecap="round" fill="none" />
+              </g>
+              <g class="part-kiss mouth-chiku-kiss">
+                <!-- Snout tilted forward with kissing lips meeting Simran's -->
+                <ellipse cx="92" cy="106" rx="16" ry="10" fill="#ffffff" />
+                <ellipse cx="94" cy="101" rx="5" ry="3.5" fill="#2d1c20" />
+                <path d="M 103 104 C 118 100, 118 111, 103 112" fill="#ff4d79" stroke="#2d1c20" stroke-width="2.5" stroke-linecap="round" />
+              </g>
+
+              <!-- === 3. REAL HUG FACE (Blissful squish eyes & wide laughing hug smile) === -->
+              <g class="part-hug eye-chiku-hug">
+                <path d="M 54 87 L 64 93 L 54 99" stroke="#2d1c20" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                <path d="M 116 87 L 106 93 L 116 99" stroke="#2d1c20" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              </g>
+              <g class="part-hug mouth-chiku-hug">
+                <ellipse cx="85" cy="104" rx="14" ry="9" fill="#ffffff" />
+                <ellipse cx="85" cy="100" rx="5" ry="3.5" fill="#2d1c20" />
+                <path d="M 75 106 Q 85 124 95 106 Z" fill="#e02656" stroke="#2d1c20" stroke-width="2.5" />
+                <path d="M 79 114 Q 85 111 91 114" fill="#ff85a2" />
+              </g>
 
               <!-- Chiku's Dapper Bowtie -->
-              <g transform="translate(80, 132)">
+              <g transform="translate(85, 134)">
                 <polygon points="0,0 -12,-8 -12,8" fill="#ff4d79" />
                 <polygon points="0,0 12,-8 12,8" fill="#ff4d79" />
                 <circle cx="0" cy="0" r="4" fill="#ffffff" />
               </g>
 
-              <!-- Arms -->
-              <!-- Left Arm -->
-              <ellipse cx="36" cy="138" rx="12" ry="18" fill="url(#chikuBodyGrad)" transform="rotate(20 36 138)" />
-              <!-- Right Arm reaching toward Simran -->
-              <ellipse cx="124" cy="136" rx="12" ry="20" fill="url(#chikuBodyGrad)" transform="rotate(-30 124 136)" />
+              <!-- === ARMS === -->
+              <!-- Normal Arms -->
+              <g class="part-normal">
+                <ellipse cx="38" cy="140" rx="13" ry="19" fill="url(#chikuBodyGrad)" transform="rotate(20 38 140)" />
+                <ellipse cx="132" cy="138" rx="13" ry="20" fill="url(#chikuBodyGrad)" transform="rotate(-30 132 138)" />
+              </g>
+
+              <!-- Kiss Arms (Chiku tenderly holding Simran) -->
+              <g class="part-kiss">
+                <ellipse cx="38" cy="142" rx="13" ry="18" fill="url(#chikuBodyGrad)" transform="rotate(15 38 142)" />
+                <path d="M 126 136 C 142 128, 160 134, 172 142 C 176 146, 172 153, 165 152 C 150 148, 136 150, 124 154 Z" fill="url(#chikuBodyGrad)" stroke="#c29460" stroke-width="1.5" />
+                <circle cx="170" cy="144" r="8" fill="url(#chikuBodyGrad)" />
+              </g>
+
+              <!-- Real Hug Arms (Chiku's arm wraps completely around Simran's back!) -->
+              <g class="part-hug">
+                <ellipse cx="40" cy="142" rx="13" ry="18" fill="url(#chikuBodyGrad)" transform="rotate(15 40 142)" />
+                <!-- Long wrapping arm reaching across Simran's back -->
+                <path d="M 120 132 C 152 116, 195 122, 215 140 C 220 146, 214 156, 206 154 C 185 144, 148 144, 118 152 Z" fill="url(#chikuBodyGrad)" stroke="#c29460" stroke-width="2" />
+                <!-- Paw resting visibly on Simran's back with cute pads -->
+                <circle cx="212" cy="144" r="9" fill="url(#chikuBodyGrad)" stroke="#c29460" stroke-width="1.5" />
+                <circle cx="212" cy="144" r="5" fill="#ffd1dc" />
+              </g>
+
+              <!-- Flowers Bouquet (Presented to Simran) -->
+              <g class="part-flowers" transform="translate(130, 110)">
+                <path d="M 0 20 L -10 40 L 10 40 Z" fill="#ffb6c1" />
+                <!-- 3 Red Blooming Roses -->
+                <circle cx="-8" cy="12" r="10" fill="#e02656" />
+                <circle cx="8" cy="12" r="10" fill="#e02656" />
+                <circle cx="0" cy="2" r="12" fill="#ff2a6d" />
+                <circle cx="0" cy="2" r="6" fill="#b8143d" />
+                <!-- Ribbon Bow -->
+                <path d="M -12 28 Q 0 32 12 28 M 0 28 L -6 44 M 0 28 L 6 44" stroke="#ff4d79" stroke-width="3" fill="none" />
+              </g>
+
+              <!-- Cake Slice (Feeding Simran) -->
+              <g class="part-cake" transform="translate(132, 115)">
+                <!-- Strawberry Cupcake -->
+                <path d="M -8 15 L 8 15 L 6 30 L -6 30 Z" fill="#f8c291" />
+                <path d="M -12 15 Q 0 4 12 15 Z" fill="#ffffff" />
+                <circle cx="0" cy="4" r="5" fill="#e02656" />
+              </g>
 
               <!-- Feet -->
-              <ellipse cx="60" cy="178" rx="15" ry="10" fill="url(#chikuBodyGrad)" />
-              <ellipse cx="100" cy="178" rx="15" ry="10" fill="url(#chikuBodyGrad)" />
+              <ellipse cx="64" cy="178" rx="15" ry="10" fill="url(#chikuBodyGrad)" />
+              <ellipse cx="106" cy="178" rx="15" ry="10" fill="url(#chikuBodyGrad)" />
             </svg>
             <div class="pookie-name-tag">Chiku 🧸</div>
           </div>
 
           <!-- ================= POOKIE 2: SIMRAN (Girl Pookie) ================= -->
           <div class="pookie pookie-simran" id="pookieSimran" title="Simran Pookie">
-            <svg viewBox="0 0 160 200" width="100%" height="100%">
+            <svg viewBox="0 0 170 200" width="100%" height="100%" style="overflow: visible;">
               <defs>
                 <radialGradient id="simranBodyGrad" cx="40%" cy="40%" r="60%">
                   <stop offset="0%" stop-color="#ffffff" />
@@ -204,15 +288,15 @@
               </defs>
 
               <!-- Left Bunny/Bear Ear with Flower -->
-              <circle cx="45" cy="50" r="23" fill="url(#simranBodyGrad)" />
-              <circle cx="45" cy="50" r="13" fill="url(#simranEarInner)" />
+              <circle cx="50" cy="50" r="23" fill="url(#simranBodyGrad)" />
+              <circle cx="50" cy="50" r="13" fill="url(#simranEarInner)" />
 
               <!-- Right Ear -->
-              <circle cx="115" cy="50" r="23" fill="url(#simranBodyGrad)" />
-              <circle cx="115" cy="50" r="13" fill="url(#simranEarInner)" />
+              <circle cx="120" cy="50" r="23" fill="url(#simranBodyGrad)" />
+              <circle cx="120" cy="50" r="13" fill="url(#simranEarInner)" />
 
               <!-- Simran's Pink Flower Ribbon on Ear -->
-              <g transform="translate(42, 46)">
+              <g transform="translate(46, 46)">
                 <circle cx="-6" cy="0" r="5" fill="#ff4d79" />
                 <circle cx="6" cy="0" r="5" fill="#ff4d79" />
                 <circle cx="0" cy="-6" r="5" fill="#ff4d79" />
@@ -221,51 +305,104 @@
               </g>
 
               <!-- Body -->
-              <ellipse cx="80" cy="140" rx="44" ry="42" fill="url(#simranBodyGrad)" />
+              <ellipse cx="85" cy="140" rx="46" ry="43" fill="url(#simranBodyGrad)" />
               <!-- Tummy Patch -->
-              <ellipse cx="80" cy="145" rx="28" ry="25" fill="#fff7f8" />
+              <ellipse cx="85" cy="145" rx="30" ry="26" fill="#fff7f8" />
 
               <!-- Head -->
-              <ellipse cx="80" cy="95" rx="50" ry="45" fill="url(#simranBodyGrad)" />
+              <ellipse cx="85" cy="95" rx="52" ry="47" fill="url(#simranBodyGrad)" />
 
               <!-- Sweet Rosy Cheeks -->
-              <circle cx="50" cy="108" r="11" fill="#ff5e88" opacity="0.65" />
-              <circle cx="110" cy="108" r="11" fill="#ff5e88" opacity="0.65" />
+              <circle class="blush-circle" cx="52" cy="110" r="13" fill="#ff5e88" opacity="0.65" />
+              <circle class="blush-circle" cx="118" cy="110" r="13" fill="#ff5e88" opacity="0.65" />
 
-              <!-- Eyes with Eyelashes -->
-              <!-- Left Eye -->
-              <path d="M 54 90 Q 62 82 70 90" stroke="#332025" stroke-width="3.5" fill="none" stroke-linecap="round" />
-              <path d="M 52 86 L 48 82" stroke="#332025" stroke-width="2.5" stroke-linecap="round" />
-              <path d="M 72 86 L 76 82" stroke="#332025" stroke-width="2.5" stroke-linecap="round" />
+              <!-- Squish Cheeks for Real Hug -->
+              <g class="squish-cheeks">
+                <path d="M 45 104 Q 40 110 45 116" stroke="#ff4d79" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                <path d="M 41 107 Q 37 110 41 114" stroke="#ff4d79" stroke-width="2" fill="none" stroke-linecap="round" />
+              </g>
 
-              <!-- Right Eye -->
-              <path d="M 90 90 Q 98 82 106 90" stroke="#332025" stroke-width="3.5" fill="none" stroke-linecap="round" />
-              <path d="M 88 86 L 84 82" stroke="#332025" stroke-width="2.5" stroke-linecap="round" />
-              <path d="M 108 86 L 112 82" stroke="#332025" stroke-width="2.5" stroke-linecap="round" />
+              <!-- === 1. NORMAL IDLE FACE === -->
+              <g class="part-normal eye-simran-normal">
+                <ellipse cx="64" cy="91" rx="6.5" ry="8.5" fill="#2d1c20" />
+                <circle cx="62" cy="88" r="3" fill="#ffffff" />
+                <!-- Eyelashes -->
+                <path d="M 60 84 L 54 80 M 70 84 L 76 80" stroke="#2d1c20" stroke-width="2.5" stroke-linecap="round" />
+                
+                <ellipse cx="106" cy="91" rx="6.5" ry="8.5" fill="#2d1c20" />
+                <circle cx="104" cy="88" r="3" fill="#ffffff" />
+                <path d="M 100 84 L 94 80 M 112 84 L 118 80" stroke="#2d1c20" stroke-width="2.5" stroke-linecap="round" />
+              </g>
+              <g class="part-normal mouth-simran-normal">
+                <ellipse cx="85" cy="106" rx="13" ry="9" fill="#ffffff" />
+                <ellipse cx="85" cy="102" rx="4.5" ry="3.5" fill="#ff4d79" />
+                <path d="M 80 110 Q 85 114 90 110" stroke="#2d1c20" stroke-width="2.2" stroke-linecap="round" fill="none" />
+              </g>
 
-              <!-- Cute Snout & Smiling Mouth -->
-              <ellipse cx="80" cy="105" rx="13" ry="9" fill="#ffffff" />
-              <ellipse cx="80" cy="101" rx="4.5" ry="3" fill="#ff4d79" />
-              <path d="M 77 109 Q 80 114 83 109" stroke="#332025" stroke-width="2.2" fill="none" stroke-linecap="round" />
+              <!-- === 2. REAL KISS FACE (Sweet closed eyes with eyelashes & puckered lips) === -->
+              <g class="part-kiss eye-simran-kiss">
+                <path d="M 54 91 Q 64 80 74 91" stroke="#2d1c20" stroke-width="4.5" stroke-linecap="round" fill="none" />
+                <path d="M 50 86 L 44 81 M 74 86 L 80 81" stroke="#2d1c20" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M 96 91 Q 106 80 116 91" stroke="#2d1c20" stroke-width="4.5" stroke-linecap="round" fill="none" />
+                <path d="M 92 86 L 86 81 M 118 86 L 124 81" stroke="#2d1c20" stroke-width="2.5" stroke-linecap="round" />
+              </g>
+              <g class="part-kiss mouth-simran-kiss">
+                <!-- Snout tilted left with kissing lips meeting Chiku's -->
+                <ellipse cx="78" cy="106" rx="16" ry="10" fill="#ffffff" />
+                <ellipse cx="76" cy="101" rx="5" ry="3.5" fill="#ff4d79" />
+                <path d="M 67 104 C 52 100, 52 111, 67 112" fill="#ff4d79" stroke="#2d1c20" stroke-width="2.5" stroke-linecap="round" />
+              </g>
 
-              <!-- Cute Pearl Necklace / Collar -->
-              <g transform="translate(80, 131)">
+              <!-- === 3. REAL HUG FACE (Blissful squish eyes & happy open smiling mouth) === -->
+              <g class="part-hug eye-simran-hug">
+                <path d="M 54 87 L 64 93 L 54 99" stroke="#2d1c20" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                <path d="M 50 82 L 44 78" stroke="#2d1c20" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M 116 87 L 106 93 L 116 99" stroke="#2d1c20" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                <path d="M 120 82 L 126 78" stroke="#2d1c20" stroke-width="2.5" stroke-linecap="round" />
+              </g>
+              <g class="part-hug mouth-simran-hug">
+                <ellipse cx="85" cy="104" rx="14" ry="9" fill="#ffffff" />
+                <ellipse cx="85" cy="100" rx="5" ry="3.5" fill="#ff4d79" />
+                <path d="M 75 106 Q 85 124 95 106 Z" fill="#e02656" stroke="#2d1c20" stroke-width="2.5" />
+                <path d="M 79 114 Q 85 111 91 114" fill="#ff85a2" />
+              </g>
+
+              <!-- Cute Pearl Necklace with Pink Heart -->
+              <g transform="translate(85, 133)">
                 <circle cx="-16" cy="0" r="3" fill="#ffffff" stroke="#ffb6c1" stroke-width="1" />
                 <circle cx="-8" cy="2" r="3.5" fill="#ffffff" stroke="#ffb6c1" stroke-width="1" />
-                <circle cx="0" cy="3" r="4.5" fill="#ff4d79" />
+                <circle cx="0" cy="3" r="5" fill="#ff4d79" />
                 <circle cx="8" cy="2" r="3.5" fill="#ffffff" stroke="#ffb6c1" stroke-width="1" />
                 <circle cx="16" cy="0" r="3" fill="#ffffff" stroke="#ffb6c1" stroke-width="1" />
               </g>
 
-              <!-- Arms -->
-              <!-- Left Arm reaching toward Chiku -->
-              <ellipse cx="36" cy="136" rx="12" ry="20" fill="url(#simranBodyGrad)" transform="rotate(30 36 136)" />
-              <!-- Right Arm -->
-              <ellipse cx="124" cy="138" rx="12" ry="18" fill="url(#simranBodyGrad)" transform="rotate(-20 124 138)" />
+              <!-- === ARMS === -->
+              <!-- Normal Arms -->
+              <g class="part-normal">
+                <ellipse cx="38" cy="138" rx="13" ry="20" fill="url(#simranBodyGrad)" transform="rotate(30 38 138)" />
+                <ellipse cx="132" cy="140" rx="13" ry="19" fill="url(#simranBodyGrad)" transform="rotate(-20 132 140)" />
+              </g>
+
+              <!-- Kiss Arms (Simran placing paw lovingly on Chiku) -->
+              <g class="part-kiss">
+                <path d="M 44 136 C 28 128, 10 134, -2 142 C -6 146, -2 153, 5 152 C 20 148, 34 150, 46 154 Z" fill="url(#simranBodyGrad)" stroke="#f4b5a8" stroke-width="1.5" />
+                <circle cx="0" cy="144" r="8" fill="url(#simranBodyGrad)" />
+                <ellipse cx="132" cy="142" rx="13" ry="18" fill="url(#simranBodyGrad)" transform="rotate(-15 132 142)" />
+              </g>
+
+              <!-- Real Hug Arms (Simran's arm wraps around Chiku's neck/back!) -->
+              <g class="part-hug">
+                <!-- Long wrapping arm reaching across Chiku's shoulder/back -->
+                <path d="M 50 132 C 18 116, -25 122, -45 140 C -50 146, -44 156, -36 154 C -15 144, 22 144, 52 152 Z" fill="url(#simranBodyGrad)" stroke="#f4b5a8" stroke-width="2" />
+                <!-- Paw resting visibly on Chiku's back with cute pads -->
+                <circle cx="-42" cy="144" r="9" fill="url(#simranBodyGrad)" stroke="#f4b5a8" stroke-width="1.5" />
+                <circle cx="-42" cy="144" r="5" fill="#ffd1dc" />
+                <ellipse cx="130" cy="142" rx="13" ry="18" fill="url(#simranBodyGrad)" transform="rotate(-15 130 142)" />
+              </g>
 
               <!-- Feet -->
-              <ellipse cx="62" cy="178" rx="14" ry="10" fill="url(#simranBodyGrad)" />
-              <ellipse cx="98" cy="178" rx="14" ry="10" fill="url(#simranBodyGrad)" />
+              <ellipse cx="66" cy="178" rx="14" ry="10" fill="url(#simranBodyGrad)" />
+              <ellipse cx="104" cy="178" rx="14" ry="10" fill="url(#simranBodyGrad)" />
             </svg>
             <div class="pookie-name-tag">Simran 🌸</div>
           </div>
