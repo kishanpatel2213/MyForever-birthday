@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Happy Birthday Simran! ❤️ From Your Chiku</title>
+  <meta name="description" content="A magical, romantic birthday wish website created for Simran with endless love by Chiku.">
+
+  <!-- Google Fonts for romantic typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+</head>
+<body>
+
+  <!-- Floating Background Magic Canvas (Hearts & Sparkles) -->
+  <canvas id="magicCanvas"></canvas>
+
+  <!-- ========================================================================
+       1. OPENING CURTAIN / BIRTHDAY GIFT SURPRISE
+       ======================================================================== -->
+  <div class="gift-curtain-modal" id="giftModal">
+    <div class="gift-curtain-content">
+      <div class="gift-box-icon" id="giftBoxIcon" title="Click to unwrap surprise!">🎁</div>
+      <p class="gift-subtitle">To My Dearest, Sweetest Girl</p>
+      <h1 class="gift-title">Simran 💕</h1>
+      <p style="color: var(--text-medium); margin-bottom: 25px; font-size: 1.05rem;">
+        Your Chiku has crafted a special surprise just for you on your birthday!
+      </p>
+      <button class="btn-open-gift" id="btnOpenGift">
+        <span>Tap to Open Your Birthday World</span>
+        <span>✨</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       2. ROMANTIC FLOATING MUSIC PLAYER
+       ======================================================================== -->
+  <aside class="music-controller" aria-label="Music Player">
+    <!-- Vinyl Disc that spins while playing -->
+    <div class="vinyl-disc" id="vinylDisc" title="Tap to Play / Pause Music"></div>
+
+    <div class="music-details">
+      <span class="music-title">Simran's Melody 🎵</span>
+      <span class="music-status" id="musicStatus">Tap to play music</span>
+    </div>
+
+    <!-- Play/Pause Toggle -->
+    <button class="music-btn" id="playPauseBtn" aria-label="Play or pause music">▶</button>
+
+   
+
+  
+    <!-- If audio/music.mp3 is not added yet, the built-in romantic chime synth plays automatically! -->
+    <audio id="bgMusic" src="audio/music.mp3" preload="auto" loop></audio>
+  </aside>
+
+  <!-- ========================================================================
+       3. HERO CELEBRATION SECTION
+       ======================================================================== -->
+  <header class="hero-section container">
+    <div class="hero-badge">
+      🎂 Today is All About You, My Queen! ✨
+    </div>
+
+    <h1 class="hero-main-title">
+      Happy Birthday, <span class="hero-name">Simran</span>! 💖
+    </h1>
+
+    <p class="hero-subtitle">
+      You bring sunshine to my darkest days and butterflies to my stomach. 
+      Today, tomorrow, and for all eternity, your Chiku celebrates the gift of YOU!
+    </p>
+
+    <div class="hero-tagline">
+      "You + Me = The Happiest Pookies Forever" 🧸💕
+    </div>
+
+    <div class="hero-action-buttons">
+      <a href="#pookiesPlayground" class="btn-primary">
+        <span>Meet Our Pookies</span> 💋
+      </a>
+      <a href="#memoriesGallery" class="btn-secondary">
+        <span>Our Memories</span> 📸
+      </a>
+      <a href="#birthdayCake" class="btn-secondary">
+        <span>Blow Birthday Candle</span> 🎂
+      </a>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       4. POOKIES LOVE & KISSING ANIMATION PLAYGROUND
+       ======================================================================== -->
+  <section id="pookiesPlayground" class="container">
+    <div class="section-header">
+      <span class="section-tag">Pookie Love World</span>
+      <h2 class="section-title">Chiku &amp; Simran in Love 🧸❤️</h2>
+      <p class="section-desc">
+        Watch our Pookie characters express pure love, give kisses, cuddle, and bring sweet joy to your heart!
+      </p>
+    </div>
+
+    <div class="pookies-stage-card">
+      <!-- Backdrop Stage with Floating Clouds -->
+      <div class="pookies-backdrop">
+        <div class="cloud-bg cloud-1"></div>
+        <div class="cloud-bg cloud-2"></div>
+
+        <!-- Dynamic Thought/Speech Bubble -->
+        <div class="pookies-dialogue-bubble" id="pookiesBubble">
+          Simran &amp; Chiku forever ❤️
+        </div>
+
+        <!-- Floating Hearts Burst Target -->
+        <div class="hearts-burst-container" id="heartsBurstContainer"></div>
+
+        <!-- The Two Loving Pookie Characters -->
+        <div class="pookies-actors-wrap" id="pookiesActorsWrap">
+
+          <!-- ================= POOKIE 1: CHIKU (Boy Pookie) ================= -->
+          <div class="pookie pookie-chiku" id="pookieChiku" title="Chiku Pookie">
+            <svg viewBox="0 0 160 200" width="100%" height="100%">
+              <defs>
+                <radialGradient id="chikuBodyGrad" cx="40%" cy="40%" r="60%">
+                  <stop offset="0%" stop-color="#fae3c6" />
+                  <stop offset="100%" stop-color="#e8be89" />
+                </radialGradient>
+                <radialGradient id="chikuEarInner" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#ffd1dc" />
+                  <stop offset="100%" stop-color="#f8a5b8" />
+                </radialGradient>
+              </defs>
+
+              <!-- Left Ear -->
+              <circle cx="45" cy="50" r="24" fill="url(#chikuBodyGrad)" />
+              <circle cx="45" cy="50" r="14" fill="url(#chikuEarInner)" />
+
+              <!-- Right Ear -->
+              <circle cx="115" cy="50" r="24" fill="url(#chikuBodyGrad)" />
+              <circle cx="115" cy="50" r="14" fill="url(#chikuEarInner)" />
+
+              <!-- Body -->
+              <ellipse cx="80" cy="140" rx="46" ry="42" fill="url(#chikuBodyGrad)" />
+              <!-- Tummy Patch -->
+              <ellipse cx="80" cy="145" rx="30" ry="26" fill="#fff6ec" />
+
+              <!-- Head -->
+              <ellipse cx="80" cy="95" rx="52" ry="46" fill="url(#chikuBodyGrad)" />
+
+              <!-- Rosy Cheeks (Blush) -->
+              <circle cx="50" cy="108" r="10" fill="#ff7597" opacity="0.6" />
+              <circle cx="110" cy="108" r="10" fill="#ff7597" opacity="0.6" />
+
+              <!-- Cute Smiling Eyes -->
+              <!-- Left Eye -->
+              <path d="M 54 90 Q 62 82 70 90" stroke="#332025" stroke-width="3.5" fill="none" stroke-linecap="round" />
+              <!-- Right Eye -->
+              <path d="M 90 90 Q 98 82 106 90" stroke="#332025" stroke-width="3.5" fill="none" stroke-linecap="round" />
+
+              <!-- Cute Bear Snout & Nose -->
+              <ellipse cx="80" cy="105" rx="14" ry="10" fill="#ffffff" />
+              <ellipse cx="80" cy="101" rx="5" ry="3.5" fill="#332025" />
+              <path d="M 80 104 Q 80 110 80 112 M 76 110 Q 80 114 84 110" stroke="#332025" stroke-width="2.2" fill="none" stroke-linecap="round" />
+
+              <!-- Chiku's Dapper Bowtie -->
+              <g transform="translate(80, 132)">
+                <polygon points="0,0 -12,-8 -12,8" fill="#ff4d79" />
+                <polygon points="0,0 12,-8 12,8" fill="#ff4d79" />
+                <circle cx="0" cy="0" r="4" fill="#ffffff" />
+              </g>
+
+              <!-- Arms -->
+              <!-- Left Arm -->
+              <ellipse cx="36" cy="138" rx="12" ry="18" fill="url(#chikuBodyGrad)" transform="rotate(20 36 138)" />
+              <!-- Right Arm reaching toward Simran -->
+              <ellipse cx="124" cy="136" rx="12" ry="20" fill="url(#chikuBodyGrad)" transform="rotate(-30 124 136)" />
+
+              <!-- Feet -->
+              <ellipse cx="60" cy="178" rx="15" ry="10" fill="url(#chikuBodyGrad)" />
+              <ellipse cx="100" cy="178" rx="15" ry="10" fill="url(#chikuBodyGrad)" />
+            </svg>
+            <div class="pookie-name-tag">Chiku 🧸</div>
+          </div>
+
+          <!-- ================= POOKIE 2: SIMRAN (Girl Pookie) ================= -->
+          <div class="pookie pookie-simran" id="pookieSimran" title="Simran Pookie">
+            <svg viewBox="0 0 160 200" width="100%" height="100%">
+              <defs>
+                <radialGradient id="simranBodyGrad" cx="40%" cy="40%" r="60%">
+                  <stop offset="0%" stop-color="#ffffff" />
+                  <stop offset="100%" stop-color="#feddd6" />
+                </radialGradient>
+                <radialGradient id="simranEarInner" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#ffb6c1" />
+                  <stop offset="100%" stop-color="#ff8da1" />
+                </radialGradient>
+              </defs>
+
+              <!-- Left Bunny/Bear Ear with Flower -->
+              <circle cx="45" cy="50" r="23" fill="url(#simranBodyGrad)" />
+              <circle cx="45" cy="50" r="13" fill="url(#simranEarInner)" />
+
+              <!-- Right Ear -->
+              <circle cx="115" cy="50" r="23" fill="url(#simranBodyGrad)" />
+              <circle cx="115" cy="50" r="13" fill="url(#simranEarInner)" />
+
+              <!-- Simran's Pink Flower Ribbon on Ear -->
+              <g transform="translate(42, 46)">
+                <circle cx="-6" cy="0" r="5" fill="#ff4d79" />
+                <circle cx="6" cy="0" r="5" fill="#ff4d79" />
+                <circle cx="0" cy="-6" r="5" fill="#ff4d79" />
+                <circle cx="0" cy="6" r="5" fill="#ff4d79" />
+                <circle cx="0" cy="0" r="4" fill="#f9ca24" />
+              </g>
+
+              <!-- Body -->
+              <ellipse cx="80" cy="140" rx="44" ry="42" fill="url(#simranBodyGrad)" />
+              <!-- Tummy Patch -->
+              <ellipse cx="80" cy="145" rx="28" ry="25" fill="#fff7f8" />
+
+              <!-- Head -->
+              <ellipse cx="80" cy="95" rx="50" ry="45" fill="url(#simranBodyGrad)" />
+
+              <!-- Sweet Rosy Cheeks -->
+              <circle cx="50" cy="108" r="11" fill="#ff5e88" opacity="0.65" />
+              <circle cx="110" cy="108" r="11" fill="#ff5e88" opacity="0.65" />
+
+              <!-- Eyes with Eyelashes -->
+              <!-- Left Eye -->
+              <path d="M 54 90 Q 62 82 70 90" stroke="#332025" stroke-width="3.5" fill="none" stroke-linecap="round" />
+              <path d="M 52 86 L 48 82" stroke="#332025" stroke-width="2.5" stroke-linecap="round" />
+              <path d="M 72 86 L 76 82" stroke="#332025" stroke-width="2.5" stroke-linecap="round" />
+
+              <!-- Right Eye -->
+              <path d="M 90 90 Q 98 82 106 90" stroke="#332025" stroke-width="3.5" fill="none" stroke-linecap="round" />
+              <path d="M 88 86 L 84 82" stroke="#332025" stroke-width="2.5" stroke-linecap="round" />
+              <path d="M 108 86 L 112 82" stroke="#332025" stroke-width="2.5" stroke-linecap="round" />
+
+              <!-- Cute Snout & Smiling Mouth -->
+              <ellipse cx="80" cy="105" rx="13" ry="9" fill="#ffffff" />
+              <ellipse cx="80" cy="101" rx="4.5" ry="3" fill="#ff4d79" />
+              <path d="M 77 109 Q 80 114 83 109" stroke="#332025" stroke-width="2.2" fill="none" stroke-linecap="round" />
+
+              <!-- Cute Pearl Necklace / Collar -->
+              <g transform="translate(80, 131)">
+                <circle cx="-16" cy="0" r="3" fill="#ffffff" stroke="#ffb6c1" stroke-width="1" />
+                <circle cx="-8" cy="2" r="3.5" fill="#ffffff" stroke="#ffb6c1" stroke-width="1" />
+                <circle cx="0" cy="3" r="4.5" fill="#ff4d79" />
+                <circle cx="8" cy="2" r="3.5" fill="#ffffff" stroke="#ffb6c1" stroke-width="1" />
+                <circle cx="16" cy="0" r="3" fill="#ffffff" stroke="#ffb6c1" stroke-width="1" />
+              </g>
+
+              <!-- Arms -->
+              <!-- Left Arm reaching toward Chiku -->
+              <ellipse cx="36" cy="136" rx="12" ry="20" fill="url(#simranBodyGrad)" transform="rotate(30 36 136)" />
+              <!-- Right Arm -->
+              <ellipse cx="124" cy="138" rx="12" ry="18" fill="url(#simranBodyGrad)" transform="rotate(-20 124 138)" />
+
+              <!-- Feet -->
+              <ellipse cx="62" cy="178" rx="14" ry="10" fill="url(#simranBodyGrad)" />
+              <ellipse cx="98" cy="178" rx="14" ry="10" fill="url(#simranBodyGrad)" />
+            </svg>
+            <div class="pookie-name-tag">Simran 🌸</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Interactive Controls: Make Pookies Kiss, Hug, Dance, etc. -->
+      <div class="pookies-controls">
+        <button class="btn-pookie-action" data-action="kiss">
+          <span>💋 Kiss Me!</span>
+        </button>
+        <button class="btn-pookie-action" data-action="hug">
+          <span>🤗 Warm Cuddle</span>
+        </button>
+        <button class="btn-pookie-action" data-action="flowers">
+          <span>💐 Give Roses</span>
+        </button>
+        <button class="btn-pookie-action" data-action="dance">
+          <span>💃 Romantic Dance</span>
+        </button>
+        <button class="btn-pookie-action" data-action="cake">
+          <span>🧁 Feed Cake</span>
+        </button>
+        <button class="btn-pookie-action" id="btnShowerLove">
+          <span>✨ Shower Love</span>
+        </button>
+      </div>
+
+      <p class="pookie-hint-text">
+        💡 Tap any button above to make Chiku &amp; Simran cuddle, kiss, and share magical moments!
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. MEMORIES GALLERY: PHOTO SPACES WITH BEST FRAMES
+       ======================================================================== -->
+  <section id="memoriesGallery" class="container">
+    <div class="section-header">
+      <span class="section-tag">Memories &amp; Frames</span>
+      <h2 class="section-title">The Simran Gallery 📸✨</h2>
+      <p class="section-desc">
+        Framed with endless love. Each frame is designed with a unique romantic theme just for your photos!
+      </p>
+    </div>
+
+    <!-- The 6 Best Designed Romantic Photo Frames -->
+    <div class="gallery-grid">
+
+      <!-- ================= FRAME 1: Vintage Polaroid & Washi Tape ================= -->
+      <!-- PHOTO 1 PLACEHOLDER: Replace 'images/photo1.svg' with 'images/photo1.jpg' -->
+      <article class="photo-frame-card" data-frame="1">
+        <div class="frame-polaroid">
+          <div class="polaroid-tape"></div>
+          <div class="photo-img-viewport">
+            <img src="images/photo1.jpg" alt="Simran's Special Memory 1" loading="lazy">
+            <div class="frame-hover-actions">
+              <button class="frame-action-btn btn-view-photo">🔍 View Full</button>
+              <button class="frame-action-btn btn-upload-photo">📷 Select Photo</button>
+            </div>
+          </div>
+          <div class="frame-caption">
+            <h4>The Smile That Stole My Heart 💖</h4>
+            <p>From the moment I saw you, I was yours.</p>
+          </div>
+          <input type="file" class="frame-file-input" accept="image/*">
+        </div>
+      </article>
+
+      <!-- ================= FRAME 2: Gilded Golden Fairy Lights Frame ================= -->
+      <!-- PHOTO 2 PLACEHOLDER: Replace 'images/photo2.svg' with 'images/photo2.jpg' -->
+      <article class="photo-frame-card" data-frame="2">
+        <div class="frame-gilded">
+          <div class="fairy-lights-border"></div>
+          <div class="photo-img-viewport">
+            <img src="images/photo2.jpg" alt="Simran's Special Memory 2" loading="lazy">
+            <div class="frame-hover-actions">
+              <button class="frame-action-btn btn-view-photo">🔍 View Full</button>
+              <button class="frame-action-btn btn-upload-photo">📷 Select Photo</button>
+            </div>
+          </div>
+          <div class="frame-caption">
+            <h4>My Birthday Queen 👑</h4>
+            <p>You light up every corner of my world.</p>
+          </div>
+          <input type="file" class="frame-file-input" accept="image/*">
+        </div>
+      </article>
+
+      <!-- ================= FRAME 3: Translucent Heart Glassmorphism Frame ================= -->
+      <!-- PHOTO 3 PLACEHOLDER: Replace 'images/photo3.svg' with 'images/photo3.jpg' -->
+      <article class="photo-frame-card" data-frame="3">
+        <div class="frame-heart-glass">
+          <div class="floating-frame-hearts">💖</div>
+          <div class="photo-img-viewport">
+            <img src="images/photo3.jpg" alt="Simran's Special Memory 3" loading="lazy">
+            <div class="frame-hover-actions">
+              <button class="frame-action-btn btn-view-photo">🔍 View Full</button>
+              <button class="frame-action-btn btn-upload-photo">📷 Select Photo</button>
+            </div>
+          </div>
+          <div class="frame-caption">
+            <h4>The Cutest Eyes in the Universe ✨</h4>
+            <p>Pure innocence, pure beauty, pure magic.</p>
+          </div>
+          <input type="file" class="frame-file-input" accept="image/*">
+        </div>
+      </article>
+
+      <!-- ================= FRAME 4: Royal Rose Gold Crown Frame ================= -->
+      <!-- PHOTO 4 PLACEHOLDER: Replace 'images/photo4.svg' with 'images/photo4.jpg' -->
+      <article class="photo-frame-card" data-frame="4">
+        <div class="frame-royal">
+          <div class="royal-crown-badge">🌸</div>
+          <div class="photo-img-viewport">
+            <img src="images/photo4.jpg" alt="Simran's Special Memory 4" loading="lazy">
+            <div class="frame-hover-actions">
+              <button class="frame-action-btn btn-view-photo">🔍 View Full</button>
+              <button class="frame-action-btn btn-upload-photo">📷 Select Photo</button>
+            </div>
+          </div>
+          <div class="frame-caption">
+            <h4>Every Second With You is Magic 🌸</h4>
+            <p>You make the simplest days feel extraordinary.</p>
+          </div>
+          <input type="file" class="frame-file-input" accept="image/*">
+        </div>
+      </article>
+
+      <!-- ================= FRAME 5: Retro Cinema Filmstrip Frame ================= -->
+      <!-- PHOTO 5 PLACEHOLDER: Replace 'images/photo5.svg' with 'images/photo5.jpg' -->
+      <article class="photo-frame-card" data-frame="5">
+        <div class="frame-filmstrip">
+          <div class="filmstrip-sprockets-top">
+            <div class="sprocket"></div><div class="sprocket"></div><div class="sprocket"></div>
+            <div class="sprocket"></div><div class="sprocket"></div><div class="sprocket"></div>
+          </div>
+          <div class="photo-img-viewport">
+            <img src="images/photo5.jpg" alt="Simran's Special Memory 5" loading="lazy">
+            <div class="frame-hover-actions">
+              <button class="frame-action-btn btn-view-photo">🔍 View Full</button>
+              <button class="frame-action-btn btn-upload-photo">📷 Select Photo</button>
+            </div>
+          </div>
+          <div class="filmstrip-sprockets-bottom">
+            <div class="sprocket"></div><div class="sprocket"></div><div class="sprocket"></div>
+            <div class="sprocket"></div><div class="sprocket"></div><div class="sprocket"></div>
+          </div>
+          <div class="frame-caption">
+            <h4>Chiku's Forever Pookie 🎞️</h4>
+            <p>Our story is my favorite love movie.</p>
+          </div>
+          <input type="file" class="frame-file-input" accept="image/*">
+        </div>
+      </article>
+
+      <!-- ================= FRAME 6: Neon Heartbeat Love Frame ================= -->
+      <!-- PHOTO 6 PLACEHOLDER: Replace 'images/photo6.svg' with 'images/photo6.jpg' -->
+      <article class="photo-frame-card" data-frame="6">
+        <div class="frame-neon">
+          <div class="photo-img-viewport">
+            <img src="images/photo6.jpg" alt="Simran's Special Memory 6" loading="lazy">
+            <div class="frame-hover-actions">
+              <button class="frame-action-btn btn-view-photo">🔍 View Full</button>
+              <button class="frame-action-btn btn-upload-photo">📷 Select Photo</button>
+            </div>
+          </div>
+          <div class="frame-caption">
+            <h4>Forever My Favorite Girl 💌</h4>
+            <p>Growing older, loving you more each day.</p>
+          </div>
+          <input type="file" class="frame-file-input" accept="image/*">
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. INTERACTIVE BIRTHDAY CAKE & CANDLE BLOWING SECTION
+       ======================================================================== -->
+  <section id="birthdayCake" class="container">
+    <div class="section-header">
+      <span class="section-tag">Birthday Wish Ceremony</span>
+      <h2 class="section-title">Make a Wish, Simran! 🎂✨</h2>
+      <p class="section-desc">
+        Close your eyes, make a secret wish, and tap the candle to blow it out!
+      </p>
+    </div>
+
+    <div class="cake-section-card">
+      <!-- Interactive Cake Stage -->
+      <div class="cake-stage" id="cakeStage" title="Tap candle to blow out and make a wish!">
+        
+        <!-- Candle -->
+        <div class="cake-candle">
+          <div class="candle-wick"></div>
+          <div class="candle-flame" id="candleFlame"></div>
+          <div class="candle-smoke" id="candleSmoke">💨</div>
+        </div>
+
+        <!-- 3 Tiers of Delicious Strawberry Vanilla Cake -->
+        <div class="cake-tier cake-top-tier">
+          <div class="cake-frosting-drip"></div>
+        </div>
+        <div class="cake-tier cake-middle-tier">
+          <div class="cake-frosting-drip"></div>
+        </div>
+        <div class="cake-tier cake-bottom-tier">
+          <div class="cake-frosting-drip"></div>
+        </div>
+
+        <div class="cake-plate"></div>
+      </div>
+
+      <div class="cake-wish-banner" id="cakeWishBanner">
+        <p style="font-size: 1.15rem; color: var(--primary-dark); font-weight: 700;">
+          👆 Tap the candle above to blow it out!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. HEARTFELT LOVE LETTER FROM CHIKU TO SIMRAN
+       ======================================================================== -->
+  <section id="loveLetter" class="container letter-section">
+    <div class="envelope-wrapper">
+      <div class="envelope-card">
+        <div class="wax-stamp-seal" title="Sealed with Love">💌</div>
+
+        <div class="letter-header">
+          <h2 class="letter-salutation">My Dearest Simran,</h2>
+        </div>
+
+        <div class="letter-body">
+          <p>
+            Happy Birthday to the most special person in my universe! ✨ 
+            On this day, the world became a much brighter, gentler, and more beautiful place because you were born.
+          </p>
+          <p>
+            Every single time you call me <span class="letter-highlight">Chiku</span>, my heart skips a beat. 
+            You have this unbelievable magic about you—the sweetest laugh that instantly erases all my worries, 
+            the kindest eyes that feel like coming home, and a warmth that wraps around me even from miles away.
+          </p>
+          <p>
+            I promise to always be by your side: to cheer the loudest for every single one of your dreams, 
+            to listen to all your stories, to protect your smile, and to love you more deeply with every sunrise.
+          </p>
+          <p>
+            May this year bring you all the love, happiness, laughter, and success that you deserve. 
+            You are my greatest blessing, my forever pookie, and the love of my life.
+          </p>
+        </div>
+
+        <div class="letter-signature">
+          <p class="signature-tag">Yours and only yours forever,</p>
+          <h3 class="signature-name">Chiku 💕</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. REASONS WHY CHIKU LOVES SIMRAN
+       ======================================================================== -->
+  <section id="whyILoveYou" class="container">
+    <div class="section-header">
+      <span class="section-tag">Infinite Reasons</span>
+      <h2 class="section-title">Why Chiku Loves Simran 💖</h2>
+      <p class="section-desc">
+        Just a few of the million little things that make you irreplaceable to me.
+      </p>
+    </div>
+
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <div class="reason-icon">🌸</div>
+        <h3 class="reason-title">Your Pure Heart</h3>
+        <p class="reason-desc">The genuine kindness and warmth you show to everyone around you is so rare and precious.</p>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-icon">🧸</div>
+        <h3 class="reason-title">Calling Me "Chiku"</h3>
+        <p class="reason-desc">No name sounds sweeter than when you say it with that adorable tone in your voice.</p>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-icon">✨</div>
+        <h3 class="reason-title">Your Contagious Giggles</h3>
+        <p class="reason-desc">When you laugh uncontrollably, my whole day is made. It's my absolute favorite sound.</p>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-icon">👑</div>
+        <h3 class="reason-title">My Queen &amp; Partner</h3>
+        <p class="reason-desc">No matter what life brings, knowing I have you by my side gives me infinite strength.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9. MODALS: LIGHTBOX & PHOTO INSTRUCTIONS
+       ======================================================================== -->
+  <!-- Full Size Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Photo Preview">
+    <div class="lightbox-content">
+      <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close Preview">&times;</button>
+      <div class="lightbox-img-wrap">
+        <img id="lightboxImg" src="" alt="Full view">
+      </div>
+      <h4 class="lightbox-caption" id="lightboxCaption">Simran &amp; Chiku</h4>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       10. FOOTER
+       ======================================================================== -->
+  <footer>
+    <div class="footer-pookie-kiss">🧸💋🐰</div>
+    <p class="footer-text">Created with all my heart for my favorite human</p>
+    <div class="footer-names">Simran &amp; Chiku</div>
+    <p class="footer-sub">Forever and Always 💕 Happy Birthday!</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="js/script.js"></script>
+</body>
+</html>
